@@ -1,6 +1,7 @@
 /* General layout */
 
-html, body {
+html,
+body {
     box-sizing: border-box;
     font: 16px Arial;
     text-align: center;
@@ -42,8 +43,6 @@ p {
 
 div {
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
 }
 
 p strong {
@@ -83,53 +82,45 @@ p strong {
     margin: 20px auto 0;
     list-style: none;
     padding: 0;
-    overflow: hidden
-}
-
-#levels li {
-    float: left;
-    width: auto;
-    border-radius: 3px;
-    border: solid 1px #DC930B;
-    margin: 5px 10px 5px 0;
-}
-
-#levels li:last-child {
-    margin-right: 0
-}
-
-#levels li.selected {
-    border: solid 1px #284EAE;
-}
-
-#levels li a {
-    text-decoration: none;
-    display: inline-block;
-    border-top: solid 1px #FFC04D;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    width: 25px;
-    height: 25px;
-    background-color: orange;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 25px;
-    text-align: center;
-    color: #fff;
-}
-
-#levels li.selected a {
-    border-top: solid 1px #6B88D2;
-    background-color: #2B54BF
+    overflow: hidden;
+    li {
+        float: left;
+        width: auto;
+        border-radius: 3px;
+        border: solid 1px #DC930B;
+        margin: 5px 10px 5px 0;
+        &:last-child {
+            margin-right: 0;
+        }
+        .selected {
+            border: solid 1px #284EAE;
+            a {
+                border-top: solid 1px #6B88D2;
+                background-color: #2B54BF;
+            }
+        }
+        a {
+            text-decoration: none;
+            display: inline-block;
+            border-top: solid 1px #FFC04D;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            width: 25px;
+            height: 25px;
+            background-color: orange;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 25px;
+            text-align: center;
+            color: #fff;
+        }
+    }
 }
 
 /* Card layout */
 
 .play-field, .card {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
+    user-select: none;
 }
 
 .play-field {
@@ -179,20 +170,15 @@ p strong {
     opacity: 0;
     color: #2B54BF;
     text-shadow: 1px 1px 1px rgba(255,255,255,1);
-}
-.front img {
-    width: 100%;
-    height: 100%;
-}
-.front video {
-    width: 100%;
-    height: 100%;
+    img, video {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .back {
     opacity: 1;
     background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 5px, rgba(255,0,0,.5) 6px, rgba(255,0,0,.5) 6px, rgba(255,255,255,.1) 7px),repeating-linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 5px, rgba(255,0,0,.5) 6px, rgba(255,0,0,.5) 6px, rgba(255,255,255,.1) 7px);
-    background-image: -webkit-repeating-linear-gradient(45deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 5px, rgba(255,0,0,.5) 6px, rgba(255,0,0,.5) 6px, rgba(255,255,255,.1) 7px),-webkit-repeating-linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 5px, rgba(255,0,0,.5) 6px, rgba(255,0,0,.5) 6px, rgba(255,255,255,.1) 7px);
 }
 
 .clicks {
@@ -200,63 +186,36 @@ p strong {
     right: 3px;
     bottom: 2px;
     color: #777;
-    font: bold 11px Arial
+    font: bold 11px Arial;
 }
 
 /* Card animation */
 
 .card {
-    perspective: 100;
-    -webkit-perspective: 100;
-    -moz-perspective: 100;
+    perspective: 500;
 }
 
 .flipper {
     transform-style: preserve-3d;
     transition: transform 0.15s linear;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 0.15s linear;
 }
 
 .face {
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     transition: opacity 0.15s linear;
-    -webkit-transition: opacity 0.15s linear;
 }
 
 .flipfront {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
     box-shadow: -1px 1px 3px 1px #ccc;
 }
 
 .flipback {
     transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
 }
 
 .front {
     transform: rotateY(-180deg);
-    -webkit-transform: rotateY(-180deg);
-}
-
-@-moz-keyframes pulse {
-    from {
-        background-color: #fff;
-    }
-    to {
-        background-color: orange;
-    }
-}
-
-@-webkit-keyframes pulse {
-    from {
-        background-color: #fff;
-    }
-    to {
-        background-color: orange;
-    }
 }
 
 @keyframes pulse {
@@ -269,13 +228,10 @@ p strong {
 }
 
 .pulse {
-    -moz-animation: pulse 0.2s ease-in-out 5 alternate;
-    -webkit-animation: pulse 0.2s ease-in-out 5 alternate;
     animation: pulse 0.2s ease-in-out 5 alternate;
 }
 
 .play-field.win .flipper {
-    -webkit-transition: opacity 0.5s ease 1.5s;
     transition: opacity 0.5s ease 1.5s;
     opacity: 1 !important
 }
@@ -286,7 +242,6 @@ p strong {
     font-size: 0;
     margin-top: 0;
     text-shadow: -1px -1px #C18005, 1px -1px #C18005, -1px 1px #C18005, 1px 1px #C18005;
-    -webkit-transition: all 1.5s ease 0.5s;
     transition: all 1.5s ease 0.5s;
 }
 

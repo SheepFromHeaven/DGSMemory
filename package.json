@@ -1,0 +1,33 @@
+{
+  "name": "dgs-memory",
+  "version": "1.0.0",
+  "description": "Memory for german sign language",
+  "scripts": {
+    "start": "gulp start",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SheepFromHeaven/DGSMemory.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SheepFromHeaven/DGSMemory/issues"
+  },
+  "homepage": "https://github.com/SheepFromHeaven/DGSMemory#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.2.0",
+    "gulp-connect": "^5.7.0",
+    "rimraf": "^2.6.3"
+  }
+}
